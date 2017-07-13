@@ -26,9 +26,9 @@ public class StreamsExample {
 	
 	
 	public final static String[] warzywa = {
-			"Bak³a¿an"   ,
-			"Bób"        ,
-			"Broku³"     ,
+			"BakÂ³aÂ¿an"   ,
+			"BÃ³b"        ,
+			"BrokuÂ³"     ,
 			"Brukiew"    ,
 			"Burak"      ,
 			"Rzodkiewka" ,
@@ -44,7 +44,7 @@ public class StreamsExample {
 			"Por"        ,
 			"Roszponka"  ,
 			"Rzepa"      ,
-			"Jarmu¿"     ,
+			"JarmuÂ¿"     ,
 			"Kalafior"   ,
 			"Kalarepa"   ,
 			"Kapusta"    ,
@@ -52,11 +52,11 @@ public class StreamsExample {
 			"Koper"      ,
 			"Kukurydza"  ,
 			"Marchew"    ,
-			"Ogórek"     ,
+			"OgÃ³rek"     ,
 			"Papryka"    ,
-			"Rze¿ucha"   ,
+			"RzeÂ¿ucha"   ,
 			"Rzodkiew"   ,
-			"Sa³ata"     ,
+			"SaÂ³ata"     ,
 			"Seler"      ,
 			"Skorzonera" ,
 			"Szalotka"   ,
@@ -64,6 +64,14 @@ public class StreamsExample {
 			"Szpinak"    ,
 			"Pomidor"    
 	};
+	
+	// usage of IntStream to process int[]; not Integer[] - hence the need for boxing
+	public static int simpleArraySum(int n, int[] ar) {
+               
+        	List<Integer> arList = IntStream.of(ar).boxed().collect(Collectors.toList());
+        	int total = arList.stream().reduce(0, Integer::sum);
+        	return total;
+    	};
 	
 	public static void main (String[] args){
 		List<String> elementy =  Arrays.asList(warzywa);
